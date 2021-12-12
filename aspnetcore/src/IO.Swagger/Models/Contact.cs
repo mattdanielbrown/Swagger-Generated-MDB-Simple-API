@@ -21,19 +21,11 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// Methods of contacting individuals, organizations, groups, and bots; both physically tangible, and abstract.
     /// </summary>
     [DataContract]
-    public partial class InventoryItem : IEquatable<InventoryItem>
+    public partial class Contact : IEquatable<Contact>
     { 
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [Required]
-
-        [DataMember(Name="id")]
-        public Guid? Id { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
@@ -43,20 +35,18 @@ namespace IO.Swagger.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReleaseDate
+        /// Gets or Sets ContactType
         /// </summary>
-        [Required]
 
-        [DataMember(Name="releaseDate")]
-        public DateTime? ReleaseDate { get; set; }
+        [DataMember(Name="contactType")]
+        public string ContactType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Manufacturer
+        /// Gets or Sets ContactPointValue
         /// </summary>
-        [Required]
 
-        [DataMember(Name="manufacturer")]
-        public Manufacturer Manufacturer { get; set; }
+        [DataMember(Name="contactPointValue")]
+        public string ContactPointValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,11 +55,10 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InventoryItem {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class Contact {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ReleaseDate: ").Append(ReleaseDate).Append("\n");
-            sb.Append("  Manufacturer: ").Append(Manufacturer).Append("\n");
+            sb.Append("  ContactType: ").Append(ContactType).Append("\n");
+            sb.Append("  ContactPointValue: ").Append(ContactPointValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,39 +81,34 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InventoryItem)obj);
+            return obj.GetType() == GetType() && Equals((Contact)obj);
         }
 
         /// <summary>
-        /// Returns true if InventoryItem instances are equal
+        /// Returns true if Contact instances are equal
         /// </summary>
-        /// <param name="other">Instance of InventoryItem to be compared</param>
+        /// <param name="other">Instance of Contact to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InventoryItem other)
+        public bool Equals(Contact other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
                     Name == other.Name ||
                     Name != null &&
                     Name.Equals(other.Name)
                 ) && 
                 (
-                    ReleaseDate == other.ReleaseDate ||
-                    ReleaseDate != null &&
-                    ReleaseDate.Equals(other.ReleaseDate)
+                    ContactType == other.ContactType ||
+                    ContactType != null &&
+                    ContactType.Equals(other.ContactType)
                 ) && 
                 (
-                    Manufacturer == other.Manufacturer ||
-                    Manufacturer != null &&
-                    Manufacturer.Equals(other.Manufacturer)
+                    ContactPointValue == other.ContactPointValue ||
+                    ContactPointValue != null &&
+                    ContactPointValue.Equals(other.ContactPointValue)
                 );
         }
 
@@ -138,14 +122,12 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
                     if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
-                    if (ReleaseDate != null)
-                    hashCode = hashCode * 59 + ReleaseDate.GetHashCode();
-                    if (Manufacturer != null)
-                    hashCode = hashCode * 59 + Manufacturer.GetHashCode();
+                    if (ContactType != null)
+                    hashCode = hashCode * 59 + ContactType.GetHashCode();
+                    if (ContactPointValue != null)
+                    hashCode = hashCode * 59 + ContactPointValue.GetHashCode();
                 return hashCode;
             }
         }
@@ -153,12 +135,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InventoryItem left, InventoryItem right)
+        public static bool operator ==(Contact left, Contact right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InventoryItem left, InventoryItem right)
+        public static bool operator !=(Contact left, Contact right)
         {
             return !Equals(left, right);
         }

@@ -174,6 +174,25 @@
           "name" : "ACME Corporation",
           "homePage" : "https://www.acme-corp.com"
         }
+      },
+      "Contact" : {
+        "required" : [ "name" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "example" : "Email Matt"
+          },
+          "contactType" : {
+            "type" : "string",
+            "example" : "email"
+          },
+          "contactPointValue" : {
+            "type" : "string",
+            "example" : "contact@mattbrown.email"
+          }
+        },
+        "description" : "Methods of contacting individuals, organizations, groups, and bots; both physically tangible, and abstract."
       }
     }
   }

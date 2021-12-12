@@ -30,18 +30,21 @@ namespace IO.Swagger.Models
         /// Gets or Sets Name
         /// </summary>
         [Required]
+
         [DataMember(Name="name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets HomePage
         /// </summary>
+
         [DataMember(Name="homePage")]
         public string HomePage { get; set; }
 
         /// <summary>
         /// Gets or Sets Phone
         /// </summary>
+
         [DataMember(Name="phone")]
         public string Phone { get; set; }
 
